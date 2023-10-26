@@ -6,4 +6,6 @@ Microsoft.EntityFrameworkCore
 Microsoft.EntityFrameworkCore.Design  
 Microsoft.EntityFrameworkCore.SqlServer  
 Microsoft.EntityFrameworkCore.SqlServer.Design  
-Microsoft.EntityFrameworkCore.Tools  
+Microsoft.EntityFrameworkCore.Tools    
+Kullanıcı Adı : Admin  
+Şifre : Admin+123
