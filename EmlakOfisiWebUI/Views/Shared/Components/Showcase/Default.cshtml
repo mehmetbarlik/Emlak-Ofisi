@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Estate>
+<div class="text-center">
+    <h6 class="display-6">Vitrin</h6>
+</div>
+
+<div class="row">
+    @foreach (var est in Model)
+    {
+        <partial name="_EstateCard" model="@est" />
+    }
+</div>

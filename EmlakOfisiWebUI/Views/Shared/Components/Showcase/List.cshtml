@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Estate>
+
+<div class="mt-5 text-center border-bottom">
+    <h6 class="display-6">Mülk Listesi</h6>
+</div>
+
+<div class="row">
+    @foreach (var est in Model)
+    {
+        <div class="col-md-3 my-3">
+            <div class="card " style="width: 18rem;">
+                @* <img class="card-img-top" src="@prd.ImageUrl" alt="Card image cap"> *@
+                <div class="card-body">
+                    <h5 class="card-title">@est.EstateName</h5>
+                    <p class="card-text">@est.Price</p>
+                    <br>
+                    <a asp-action="Update" asp-controller="Estate" asp-route-id="@est.EstateId"
+                       class="btn btn-primary">Düzenle</a>
+                    <img class="rounded" align="right" src=@est?.ImageUrl width="120" height="120">
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+
+                        <div class="form-check form-switch">
+                            <input type="hidden" name="estateId" value="@est.EstateId" />
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                                   checked="@est.Showcase" disabled>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Vitrin</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

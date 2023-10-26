@@ -1,0 +1,51 @@
+﻿@page "/favoritelist"
+@model EmlakOfisiWebUI.Pages.FavoriteListModel
+
+<div>
+    <div class="text-center display-6">
+        Favori Listesi
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Ev</th>
+                <th>Adet</th>
+                <th>Resim</th>
+                <th>Fiyat</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.FavoriteList?.Lines ?? Enumerable.Empty<FavoriteListLine>())
+            {
+                <tr>
+
+                    <td> <a class="nav-link active" aria-current="page" asp-controller="Estate" asp-action="Get" asp-route-id="@line.Estate.EstateId">@line.Estate.EstateName</a></td>
+                         
+                    <td>@line.Quantity</td>
+                    <td><img src="@line.Estate.ImageUrl" width="80" ></td>
+                    <td>@line.Estate.Price.ToString("c")</td>
+                    <td>
+                        <form method="post" asp-page-handler="Remove">
+
+                            <input type="hidden" name="id" value="@line.Estate.EstateId" />
+                            <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="fa fa-trash">
+                                </i>
+                                Kaldır
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    <div class="text-center my-3">
+        <div class="btn-group">
+            <a class="btn btn-primary" href="@Model?.ReturnUrl">Göz atmaya devam et</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<IdentityUser>
+
+<div class="text-center my-5">
+    <div class="display-6 border-bottom">Profil</div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(User.Identity.IsAuthenticated)
+        {
+            <tr>
+                <td>@User.Identity.Name</td>
+                <td>
+                    
+                        <a class="btn btn btn-info rounded-0" asp-action="ResetPassword" asp-route-id="@User.Identity.Name">
+                            <i class="fa fa-solid fa-edit"></i>
+                            Şifreyi Sıfırla
+                        </a>
+                </td>
+            </tr>
+                <td></td>
+                <td>
+                    <a class="btn btn btn-info rounded-0" asp-controller="Estate" asp-action="AgentIndex">
+                        <i class="fa fa-solid fa-edit"></i>
+                        İlanlarım
+                    </a>
+                </td>
+            
+        }      
+            
+    </tbody>
+</table>

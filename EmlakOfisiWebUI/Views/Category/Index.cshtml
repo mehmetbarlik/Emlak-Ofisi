@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Category>
+   
+    <div class ="text-center my-3">
+        <h6 class ="display-6">
+            Kategoriler
+        </h6>
+    </div>
+   <ul class ="list-group my-3">
+    @foreach (var cat in Model)
+    {
+        <li class="list-group-item">
+            <a asp-controller="Estate" asp-action="Index" asp-route-categoryId="@cat.CategoryId">
+                @cat.CategoryName
+            </a>
+        </li>
+    }
+   </ul>
